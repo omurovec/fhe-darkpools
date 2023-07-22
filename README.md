@@ -1,5 +1,19 @@
 # FHE Dark Pools
 
+This is a hackathon project for the ethcc6 Fhenix & ZAMA hackathon.
+
+This project is an effort to recreate Dark Pools in a decentralized form.
+Dark Pools are a popular offering in tradfi where parties can create buy or sell orders without revealing the size or price of their order.
+This is very beneficial for large trades which would drastically impact the market causing an unsatisfactory execution price or otherwise suffer from high frequency trading.
+
+As far as I know, Dark pools are not possible within the contraints of the EVM since there is no way to obfuscate the order size or price while allowing buy & sell orders to be matched with eachother unless there is a singular party who can see the orders.
+
+With FHE, we can encrypt the order size & price while still allowing solvers/market makers to match orders.
+Using FHE, solvers can watch new orders and check for orders with equal prices then fill those orders.
+
+This repo only contains the contracts for the dark pools.
+Given more time, I would build out a front-end and solvers to match the orders.
+
 ## Setup
 
 ### 1. Start local network
