@@ -14,3 +14,7 @@ docker run -it -p 8545:8545 -p 6000:6000 \
 ```sh
 curl "http://localhost:6000/faucet?address=${ADDRESS}"
 ```
+
+## Notes
+
+- Tests don't seem to be working properly, could be due to the TFHE lib or I could be dumb 🫠🤷

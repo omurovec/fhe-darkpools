@@ -3,10 +3,14 @@ pragma solidity ^0.8.13;
 
 import "fhevm/lib/TFHE.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "forge-std/Test.sol";
 
-contract DarkPool {
+contract DarkPool is Test {
     // Buy or Sell base token for quote token
-    enum OrderType {Buy, Sell}
+    enum OrderType {
+        Buy,
+        Sell
+    }
 
     struct Order {
         euint32 amount; // Amount of base to buy/sell
@@ -23,25 +27,11 @@ contract DarkPool {
     // user => buy/sell => sellorder
     mapping(address => mapping(OrderType => Order)) public orders;
 
-    event OrderCreated(
-        address indexed user,
-        uint8 orderType,
-        euint32 amount,
-        euint32 price
-    );
+    event OrderCreated(address indexed user, uint8 orderType, euint32 amount, euint32 price);
 
-    event OrderUpdated(
-        address indexed user,
-        uint8 orderType,
-        euint32 amount,
-        euint32 price
-    );
+    event OrderUpdated(address indexed user, uint8 orderType, euint32 amount, euint32 price);
 
-    event OrderDeleted(
-        address indexed user,
-        uint8 orderType
-    );
-
+    event OrderDeleted(address indexed user, uint8 orderType);
 
     constructor(ERC20[] memory _tokens) {
         tokens = _tokens;
@@ -54,14 +44,11 @@ contract DarkPool {
         balances[msg.sender][tokenId] = TFHE.add(prevBalance, amount);
     }
 
-    function createOrder(OrderType orderType, bytes calldata amountCypherText, bytes calldata priceCypherText) public {
-        euint32 amount = TFHE.asEuint32(amountCypherText);
-        euint32 price = TFHE.asEuint32(priceCypherText);
-
+    function _createOrder(OrderType orderType, euint32 amount, euint32 price) internal {
         // ensure there is no existing order
         TFHE.req(TFHE.ne(orders[msg.sender][orderType].amount, 0));
 
-        if(orderType == OrderType.Buy) {
+        if (orderType == OrderType.Buy) {
             // ensure amount * price <= quote balance
             TFHE.req(TFHE.le(TFHE.mul(amount, price), balances[msg.sender][QUOTE_INDEX]));
         } else {
@@ -74,17 +61,27 @@ contract DarkPool {
         emit OrderCreated(msg.sender, uint8(orderType), amount, price);
     }
 
+    function createOrder(OrderType orderType, bytes calldata amountCypherText, bytes calldata priceCypherText) public {
+        euint32 amount = TFHE.asEuint32(amountCypherText);
+        euint32 price = TFHE.asEuint32(priceCypherText);
+
+        _createOrder(orderType, amount, price);
+    }
+
     function fillOrder(address buyer, address seller) public {
         Order memory buyOrder = orders[buyer][OrderType.Buy];
         Order memory sellOrder = orders[seller][OrderType.Sell];
 
+        emit log("checking order empty");
         // ensure neither order is empty
-        require(TFHE.isInitialized(buyOrder.amount), "Buy order does not exist");
-        require(TFHE.isInitialized(sellOrder.amount), "Sell order does not exist");
+        TFHE.req(TFHE.ne(buyOrder.amount, 0));
+        TFHE.req(TFHE.ne(sellOrder.amount, 0));
 
+        emit log("checking order prices match");
         // ensure prices are the same
         TFHE.req(TFHE.eq(buyOrder.price, sellOrder.price));
 
+        emit log("checking which order ls larger");
         // Check which order is larger
         ebool buyOrderLarger = TFHE.le(sellOrder.amount, buyOrder.amount);
 
@@ -106,11 +103,16 @@ contract DarkPool {
         balances[buyer][QUOTE_INDEX] = TFHE.sub(balances[buyer][QUOTE_INDEX], quoteAmount);
 
         // Remove price of filled orders
-        orders[buyer][OrderType.Buy].price = TFHE.cmux(TFHE.le(buyOrder.amount, 0), TFHE.asEuint32(0),  buyOrder.price);
-        orders[seller][OrderType.Sell].price = TFHE.cmux(TFHE.le(sellOrder.amount, 0), TFHE.asEuint32(0),  sellOrder.price);
+        orders[buyer][OrderType.Buy].price = TFHE.cmux(TFHE.le(buyOrder.amount, 0), TFHE.asEuint32(0), buyOrder.price);
+        orders[seller][OrderType.Sell].price =
+            TFHE.cmux(TFHE.le(sellOrder.amount, 0), TFHE.asEuint32(0), sellOrder.price);
 
-        emit OrderUpdated(buyer, uint8(OrderType.Buy), orders[buyer][OrderType.Buy].amount, orders[buyer][OrderType.Buy].price);
-        emit OrderUpdated(seller, uint8(OrderType.Sell), orders[seller][OrderType.Sell].amount, orders[seller][OrderType.Sell].price);
+        emit OrderUpdated(
+            buyer, uint8(OrderType.Buy), orders[buyer][OrderType.Buy].amount, orders[buyer][OrderType.Buy].price
+        );
+        emit OrderUpdated(
+            seller, uint8(OrderType.Sell), orders[seller][OrderType.Sell].amount, orders[seller][OrderType.Sell].price
+        );
     }
 
     // Since we don't have control flow with TFHE,
@@ -129,7 +131,6 @@ contract DarkPool {
         delete orders[user][orderType];
 
         emit OrderDeleted(user, uint8(orderType));
-
     }
 
     function retractOrder(OrderType orderType) public {
@@ -142,12 +143,18 @@ contract DarkPool {
     }
 
     function withdraw(uint8 tokenId, uint32 amount) public {
-        if(tokenId == BASE_INDEX) {
+        if (tokenId == BASE_INDEX) {
             // ensure the user doesn't have an open sell order
-            require(!TFHE.isInitialized(orders[msg.sender][OrderType.Sell].amount), "Close sell order before withdrawing base");
+            require(
+                !TFHE.isInitialized(orders[msg.sender][OrderType.Sell].amount),
+                "Close sell order before withdrawing base"
+            );
         } else {
             // ensure the user doesn't have an open buy order
-            require(!TFHE.isInitialized(orders[msg.sender][OrderType.Buy].amount), "Close buy order before withdrawing quote");
+            require(
+                !TFHE.isInitialized(orders[msg.sender][OrderType.Buy].amount),
+                "Close buy order before withdrawing quote"
+            );
         }
 
         // ensure user has enough balance
@@ -159,5 +166,4 @@ contract DarkPool {
         // update balance
         balances[msg.sender][tokenId] = TFHE.sub(balances[msg.sender][tokenId], amount);
     }
-
 }
