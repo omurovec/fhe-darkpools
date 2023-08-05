@@ -1,0 +1,336 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "Precompiles",
+  "sourceName": "fhevm/lib/Precompiles.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "Add",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "BitwiseAnd",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "BitwiseOr",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "BitwiseXor",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "Cast",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "Equal",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "FhePubKey",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "GreaterThan",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "GreaterThanOrEqual",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "LessThan",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "LessThanOrEqual",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "Max",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "Min",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "Multiply",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "Negate",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "Not",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "NotEqual",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "OptimisticRequire",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "Reencrypt",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "Require",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "ShiftLeft",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "ShiftRight",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "Subtract",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "TrivialEncrypt",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "Verify",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x61055e610053600b82828239805160001a607314610046577f4e487b7100000000000000000000000000000000000000000000000000000000600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600436106101ad5760003560e01c8063a220295a116100f8578063c6bfca73116100a1578063d3a50d591161007b578063d3a50d5914610428578063d9c55b1714610446578063e6e5790514610464578063ebc55e6314610482576101ad565b8063c6bfca73146103ce578063caef8e50146103ec578063d37bf58b1461040a576101ad565b8063ad3f8203116100d2578063ad3f820314610374578063b357e2cd14610392578063c015b252146103b0576101ad565b8063a220295a1461031a578063a4f7a63014610338578063ab59a0f514610356576101ad565b806367e068581161015a5780637e52501e116101345780637e52501e146102c05780638b17f262146102de578063a0f82817146102fc576101ad565b806367e068581461026657806368232751146102845780636c5bf0da146102a2576101ad565b80634799e6d81161018b5780634799e6d81461020c5780634d2d75b11461022a5780635071152f14610248576101ad565b806302f9d589146101b2578063143087ee146101d05780634725e0b1146101ee575b600080fd5b6101ba6104a0565b6040516101c79190610536565b60405180910390f35b6101d86104a5565b6040516101e59190610536565b60405180910390f35b6101f66104aa565b6040516102039190610536565b60405180910390f35b6102146104af565b6040516102219190610536565b60405180910390f35b6102326104b4565b60405161023f9190610536565b60405180910390f35b6102506104b9565b60405161025d9190610536565b60405180910390f35b61026e6104be565b60405161027b9190610536565b60405180910390f35b61028c6104c3565b6040516102999190610536565b60405180910390f35b6102aa6104c8565b6040516102b79190610536565b60405180910390f35b6102c86104cd565b6040516102d59190610536565b60405180910390f35b6102e66104d2565b6040516102f39190610536565b60405180910390f35b6103046104d7565b6040516103119190610536565b60405180910390f35b6103226104dc565b60405161032f9190610536565b60405180910390f35b6103406104e1565b60405161034d9190610536565b60405180910390f35b61035e6104e6565b60405161036b9190610536565b60405180910390f35b61037c6104eb565b6040516103899190610536565b60405180910390f35b61039a6104f0565b6040516103a79190610536565b60405180910390f35b6103b86104f5565b6040516103c59190610536565b60405180910390f35b6103d66104fa565b6040516103e39190610536565b60405180910390f35b6103f46104ff565b6040516104019190610536565b60405180910390f35b610412610504565b60405161041f9190610536565b60405180910390f35b610430610509565b60405161043d9190610536565b60405180910390f35b61044e61050e565b60405161045b9190610536565b60405180910390f35b61046c610513565b6040516104799190610536565b60405180910390f35b61048a610518565b6040516104979190610536565b60405180910390f35b605081565b604281565b604d81565b604881565b605781565b605681565b604181565b604f81565b605281565b605481565b605a81565b605881565b604981565b604781565b605981565b605381565b604581565b604381565b605181565b604b81565b604e81565b604c81565b604481565b605581565b604681565b6000819050919050565b6105308161051d565b82525050565b600060208201905061054b6000830184610527565b9291505056fea164736f6c6343000811000a",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600436106101ad5760003560e01c8063a220295a116100f8578063c6bfca73116100a1578063d3a50d591161007b578063d3a50d5914610428578063d9c55b1714610446578063e6e5790514610464578063ebc55e6314610482576101ad565b8063c6bfca73146103ce578063caef8e50146103ec578063d37bf58b1461040a576101ad565b8063ad3f8203116100d2578063ad3f820314610374578063b357e2cd14610392578063c015b252146103b0576101ad565b8063a220295a1461031a578063a4f7a63014610338578063ab59a0f514610356576101ad565b806367e068581161015a5780637e52501e116101345780637e52501e146102c05780638b17f262146102de578063a0f82817146102fc576101ad565b806367e068581461026657806368232751146102845780636c5bf0da146102a2576101ad565b80634799e6d81161018b5780634799e6d81461020c5780634d2d75b11461022a5780635071152f14610248576101ad565b806302f9d589146101b2578063143087ee146101d05780634725e0b1146101ee575b600080fd5b6101ba6104a0565b6040516101c79190610536565b60405180910390f35b6101d86104a5565b6040516101e59190610536565b60405180910390f35b6101f66104aa565b6040516102039190610536565b60405180910390f35b6102146104af565b6040516102219190610536565b60405180910390f35b6102326104b4565b60405161023f9190610536565b60405180910390f35b6102506104b9565b60405161025d9190610536565b60405180910390f35b61026e6104be565b60405161027b9190610536565b60405180910390f35b61028c6104c3565b6040516102999190610536565b60405180910390f35b6102aa6104c8565b6040516102b79190610536565b60405180910390f35b6102c86104cd565b6040516102d59190610536565b60405180910390f35b6102e66104d2565b6040516102f39190610536565b60405180910390f35b6103046104d7565b6040516103119190610536565b60405180910390f35b6103226104dc565b60405161032f9190610536565b60405180910390f35b6103406104e1565b60405161034d9190610536565b60405180910390f35b61035e6104e6565b60405161036b9190610536565b60405180910390f35b61037c6104eb565b6040516103899190610536565b60405180910390f35b61039a6104f0565b6040516103a79190610536565b60405180910390f35b6103b86104f5565b6040516103c59190610536565b60405180910390f35b6103d66104fa565b6040516103e39190610536565b60405180910390f35b6103f46104ff565b6040516104019190610536565b60405180910390f35b610412610504565b60405161041f9190610536565b60405180910390f35b610430610509565b60405161043d9190610536565b60405180910390f35b61044e61050e565b60405161045b9190610536565b60405180910390f35b61046c610513565b6040516104799190610536565b60405180910390f35b61048a610518565b6040516104979190610536565b60405180910390f35b605081565b604281565b604d81565b604881565b605781565b605681565b604181565b604f81565b605281565b605481565b605a81565b605881565b604981565b604781565b605981565b605381565b604581565b604381565b605181565b604b81565b604e81565b604c81565b604481565b605581565b604681565b6000819050919050565b6105308161051d565b82525050565b600060208201905061054b6000830184610527565b9291505056fea164736f6c6343000811000a",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

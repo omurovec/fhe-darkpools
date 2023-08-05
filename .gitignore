@@ -1,17 +1,14 @@
-# Compiler files
-cache/
-out/
+.DS_Store
+.idea
+*.log
+tmp/
 
-# Ignores development broadcast logs
-!/broadcast
-/broadcast/*/31337/
-/broadcast/**/dry-run/
-
-# Docs
-docs/
-
-# Dotenv file
+*.tern-port
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.tsbuildinfo
+.npm
+.eslintcache
 .env
-
-# macos
-**/.DS_Store
