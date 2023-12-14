@@ -10,6 +10,7 @@ As far as I know, Dark pools are not possible within the contraints of the EVM s
 
 With FHE, we can encrypt the order size & price while still allowing solvers/market makers to match orders.
 Using FHE, solvers can watch new orders and check for orders with equal prices then fill those orders.
+> ⚠️ Note: When I originally wrote this code I had thought that a plaintext boolean value was achievable when using fhe comparison operations off-chain, however all that is retrievable is the cyphertext. In order to get the plaintext, you would require the validator set to collectively decrypt the cyphertext. This makes it impossible to run solvers off-chain and therefore any orders placed through the contract cannot be filled with this implementation.
 
 This repo only contains the contracts for the dark pools.
 Given more time, I would build out a front-end and solvers to match the orders.
